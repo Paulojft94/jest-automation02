@@ -68,18 +68,17 @@ Otherwise, look at the configuration file already provided on this project stryk
 
 Stryker also changes the .gitignore file to ignore the stryker folder: .stryker-tmp
 
-## Run Stryker Mutation when globally installed 
+## Run Stryker Mutation when globally installed
 
 ```shell
 $ stryker run
 ```
 
-## Run Stryker when locally installed 
+## Run Stryker when locally installed
 
 ```shell
 $ npx stryker run
 ```
-
 
 # Who do I talk to about this repository?
 
