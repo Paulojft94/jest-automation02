@@ -311,3 +311,150 @@ export function alineaH(mul1: number, mul2: number, start: number, end: number):
 
   return `${multiplo1} ${multiplo2}`;
 }
+
+//Exercício 8:Algarismos de um número (**)
+//8.A
+export function numAlgarismos(num: number): number {
+  thrower(num);
+  return Math.abs(num).toString().length;
+}
+
+//8.B
+export function amountOfEvenDigits(num: number): number {
+  let count: number = 0;
+
+  thrower(num);
+
+  while (num != 0) {
+    let digit = num % 10; // extract last digit. This could avoidable because performing %2 to the input will result in the analysis of the last digit
+    if (isEven(digit)) {
+      count++;
+    }
+    num = Math.floor(num / 10);
+  }
+
+  return count;
+}
+
+export function isEven(num: number): boolean {
+  return num % 2 == 0;
+}
+
+//8.C
+export function amountOfOddDigits(num: number): number {
+  let count: number = 0;
+
+  thrower(num);
+
+  while (num != 0) {
+    let digit = num % 10; // extract last digit. This could avoidable because performing %2 to the input will result in the analysis of the last digit
+    if (isEven(digit) == false) {
+      count++;
+    }
+    num = Math.floor(num / 10);
+  }
+
+  return count;
+}
+
+//8.D
+export function sumOfAlgarisms(num: number): number {
+  let ultimoDigito: number = 0;
+
+  thrower(num);
+
+  while (num != 0) {
+    ultimoDigito += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  return ultimoDigito;
+}
+
+//8.E
+export function sumOfEvenAlgarisms(num: number): number {
+  let somaPares: number = 0;
+
+  thrower(num);
+
+  while (num != 0) {
+    if (isEven(num)) {
+      somaPares += num % 10;
+    }
+    num = Math.floor(num / 10);
+  }
+
+  return somaPares;
+}
+
+//8.F
+export function sumOfOddAlgarisms(num: number): number {
+  let somaImpares: number = 0;
+
+  thrower(num);
+
+  while (num != 0) {
+    if (isEven(num) == false) {
+      somaImpares += num % 10;
+    }
+    num = Math.floor(num / 10);
+  }
+  return somaImpares;
+}
+
+//8.G
+export function meanOflgarisms(num: number): number {
+  let lastDigit: number = 0;
+  const totalAlg: number = numAlgarismos(num);
+  let total: number;
+
+  thrower(num);
+
+  while (num != 0) {
+    lastDigit += num % 10;
+    num = Math.floor(num / 10);
+  }
+
+  total = lastDigit / totalAlg;
+
+  return parseFloat(total.toFixed(2));
+}
+
+//8.H
+export function meanOfEvenDigits(num: number): number {
+  let meanEven: number;
+  thrower(num);
+
+  meanEven = sumOfEvenAlgarisms(num) / amountOfEvenDigits(num);
+
+  return meanEven;
+}
+//8.I
+export function meanOddDigits(num: number): number {
+  let meanOdd;
+
+  thrower(num);
+  meanOdd = sumOfOddAlgarisms(num) / amountOfOddDigits(num);
+
+  return parseFloat(meanOdd.toFixed(2));
+}
+
+//8.J
+export function invertNumber(num: number): number {
+  let invert: string = "";
+
+  thrower(num);
+
+  while (num != 0) {
+    invert += (num % 10) + ""; //ir adicionando o último digito a uma string
+    num = Math.floor(num / 10); //dividir por 10 para ficar com o penultimo nunero
+  }
+
+  return parseFloat(invert);
+}
+
+export function thrower(num: number) {
+  if (num != Math.floor(num) || num <= 0) {
+    throw new Error("Input must be type of INT and >0");
+  }
+}
