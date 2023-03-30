@@ -458,3 +458,159 @@ export function thrower(num: number) {
     throw new Error("Input must be type of INT and >0");
   }
 }
+
+//Exercício 9:Capicuas e Armstrong (**)
+
+//a) Verifique se um número inteiro é capicua.
+export function isCapicua(num: number): boolean {
+  let eCapicua: string = num.toString(); // cnverter o número para string
+  thrower(num);
+  return eCapicua == eCapicua.split("").reverse().join(""); //split, invertendo a ordem dos caracteres usando o método reverse e, em seguida, unindo novamente a string usando o método join
+}
+
+//b) Verifique se um dado número é um número de Armstrong,i.e., se for igual à soma dos cubos dos seus algarismos.
+export function isAmstrong(num: number): boolean {
+  let lastDig: number = 0;
+  let input: number = num;
+
+  thrower(num);
+
+  while (num != 0) {
+    lastDig += (num % 10) ** 3;
+    num = Math.floor(num / 10);
+  }
+  return lastDig == input;
+}
+
+//c) Retorne a primeira capicua num dado intervalo.
+export function findFirstCapicua(num1: number, num2: number): number {
+  thrower2(num1, num2);
+
+  for (let i = num1; i <= num2; i++) {
+    if (isCapicua(i)) {
+      return i;
+    }
+  }
+  return -1; //if no capicua is found
+}
+
+//d) Retorne a maior capicua num dado intervalo.
+export function findLastCapicua(num1: number, num2: number): number {
+  let lastCapicua: number = 0;
+
+  thrower2(num1, num2);
+
+  for (let i = num1; i <= num2; i++) {
+    if (isCapicua(i)) {
+      lastCapicua = i;
+    }
+  }
+  return lastCapicua;
+}
+
+// e) Retorne o número de capicuas num dado intervalo.
+export function amountOfCapicuas(num1: number, num2: number): number {
+  let amount: number = 0;
+
+  thrower2(num1, num2);
+
+  for (let i = num1; i <= num2; i++) {
+    if (isCapicua(i)) {
+      amount++;
+    }
+  }
+  return amount;
+}
+
+// f)Retorne o primeiro número de Armstrong num dado intervalo.
+export function findFirstAmstroung(num1: number, num2: number): number {
+  thrower2(num1, num2);
+
+  for (let i = num1; i <= num2; i++) {
+    if (isAmstrong(i)) {
+      return i;
+    }
+  }
+  return -1; //if no amstroung is found
+}
+
+//G) Retorne a quantidade de números de Armstrong num dado intervalo.
+export function amountAmstroungs(num1: number, num2: number): number {
+  let amount: number = 0;
+
+  for (let i = num1; i <= num2; i++) {
+    if (isAmstrong(i)) {
+      amount++;
+    }
+  }
+  return amount;
+}
+
+function thrower2(num1: number, num2: number) {
+  if (num1 < 0 || num2 < 0) throw new RangeError("inputs must be >=0");
+}
+
+//Exercício 10: Cálculo Vencimento (**)
+export function salarioMensal(base: number, extraH: number): number {
+  return base + base * 0.02 * extraH;
+}
+
+//Exercício 11: Posição do Producto Acumulado (**)
+export function returnIndexProduct(list: number[], target: number): number {
+  let product: number = 1;
+
+  for (let i = 0; i < list.length; i++) {
+    product *= Math.abs(list[i]); //multiplicar os índices do array e convertendo negativos para positivos
+    console.log(product);
+    if (product > target) {
+      return i;
+    }
+  }
+  return -1; //when product is never higher than target
+}
+
+//Exercício 12: Classificação de Números (**)
+export function numberClass(num: number): number {
+  let somaDiv: number = 0;
+  thrower(num);
+
+  for (let i = 0; i < num; i++) {
+    if (num % i == 0) {
+      somaDiv += i;
+    }
+  }
+  return setClass(somaDiv, num);
+}
+
+function setClass(sumDiv: number, input: number): number {
+  let numClass: number = -1; //evita ter mais um if else no código
+
+  if (sumDiv == input) {
+    numClass = 0;
+  } else if (sumDiv > input) {
+    numClass = 1;
+  }
+
+  return numClass;
+}
+
+//Exercício 13: Calcular Formas de Obter o Número (***)
+export function getCombinations(num: number): string {
+  let init: number = 0;
+  let listOps: string = "";
+  let i: number = 0;
+
+  while (init <= num) {
+    for (i = 0; i <= num; i++) {
+      if (init + i == num) {
+        listOps += `${init}+${i} `;
+      }
+    }
+    i = 0;
+    init++;
+  }
+
+  return listOps;
+}
+
+//Exercício 14: Canicultura (***)
