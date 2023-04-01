@@ -8,7 +8,7 @@ export function forLoop(num: number): number {
     throw new RangeError("The input value must be equal or higher than 1");
   }
 
-  for (let x = num; x >= 1; x--) {
+  for (let x = Math.floor(num); x >= 1; x--) {
     res = res * x;
   }
   return res;
@@ -20,6 +20,7 @@ export function cambioDetection(num: number, cam: string): number {
   let finalCambio: number = 0;
 
   if (cam != "D" && cam != "L" && cam != "I" && cam != "C" && cam != "F") throw new RangeError("You must use a valid currency");
+  if (num < 0) throw new RangeError("money must be >=0");
 
   switch (cam) {
     case "D":
@@ -614,3 +615,128 @@ export function getCombinations(num: number): string {
 }
 
 //Exercício 14: Canicultura (***)
+
+//a)
+export function foodAmount(peso: number, racao: number): number {
+  let foodBalance: number = 0;
+  let desiredFoodAmount: number = deservedFood(peso);
+  thrower(racao);
+
+  if (desiredFoodAmount > racao) {
+    foodBalance = -1;
+  } else if (desiredFoodAmount < racao) {
+    foodBalance = 1;
+  }
+
+  return foodBalance;
+}
+
+function deservedFood(peso: number): number {
+  let foodAmount: number = 500;
+
+  thrower(peso);
+  if (peso <= 10) {
+    foodAmount = 100;
+  } else if (peso > 10 && peso <= 25) {
+    foodAmount = 250;
+  } else if (peso > 25 && peso <= 45) {
+    foodAmount = 300;
+  }
+  return foodAmount;
+}
+
+//B)
+export function foodAmountGroup(pesos: number[], racoes: number[]): number[] {
+  let isEnough: number[] = [];
+  let indexFood: number[] = deservedFoodGrou(pesos);
+
+  if (pesos.length != racoes.length) {
+    thrower(-1);
+  }
+
+  for (let i = 0; i < pesos.length; i++) {
+    if (indexFood[i] > racoes[i]) {
+      isEnough.push(-1);
+    } else if (indexFood[i] < racoes[i]) {
+      isEnough.push(1);
+    } else {
+      isEnough.push(0);
+    }
+  }
+
+  return isEnough;
+}
+
+export function deservedFoodGrou(pesos: number[]): number[] {
+  let foodArray: number[] = [];
+
+  for (let i = 0; i < pesos.length; i++) {
+    thrower(pesos[i]);
+    foodArray.push(deservedFood(pesos[i]));
+  }
+  return foodArray;
+}
+
+//Exercício 15: Checksum de Número (***)
+export function numberCheckSum(cc: number, id: number): boolean {
+  let getLastNumber: number = 0;
+  let idArray: number[] = [];
+
+  if (cc < 0 || id < 0) thrower(-1);
+
+  idArray.push(id);
+
+  while (cc != 0) {
+    getLastNumber = cc % 10;
+    cc = Math.floor(cc / 10);
+    idArray.push(getLastNumber);
+  }
+
+  return isValid(somaPonderada(idArray));
+}
+
+export function somaPonderada(numArr: number[]): number {
+  let sumPonderada: number = 0;
+
+  if (numArr.length < 9) thrower(-1);
+
+  for (let i = 0; i < numArr.length; i++) {
+    sumPonderada += numArr[i] * (i + 1);
+  }
+  return sumPonderada;
+}
+
+export function isValid(summed: number): boolean {
+  return summed % 11 == 0;
+}
+
+//Exercício 16: Separação de Pares e Ímpares (***)
+
+export function organizeNumbers(num: number[]): string {
+  return `${orderOddList(num)} ${orderEvenList(num)}`;
+}
+
+export function orderEvenList(num: number[]): number[] {
+  let evenList: number[] = [];
+
+  for (let i = 0; i < num.length; i++) {
+    if (num[i] < 0 || num[i] > 9) thrower(-1);
+
+    if (isEven(num[i])) {
+      evenList.push(num[i]);
+    }
+  }
+
+  return evenList;
+}
+
+export function orderOddList(num: number[]): number[] {
+  let oddList: number[] = [];
+
+  for (let i = 0; i < num.length; i++) {
+    if (isEven(num[i]) == false) {
+      oddList.push(num[i]);
+    }
+  }
+  return oddList;
+}

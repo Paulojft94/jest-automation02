@@ -36,7 +36,7 @@
     "coverageDirectory": "coverage",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.ts"
+      "src/lab03/lab03_funcoes/funcoes03.ts"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/"
