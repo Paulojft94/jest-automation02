@@ -73,7 +73,7 @@ function cambioFs(numberFs: number): number {
 export function productDescription(num: number): string {
   let prodDescription: string;
 
-  if (num < 1 || num > 15) throw new RangeError("Values must comprehended between 1 and 15");
+  if (num < 1 || num > 15) prodDescription = "Código Inválido";
 
   if (num <= 15 && num >= 8) {
     prodDescription = "Limpeza e utensílios domésticos";
@@ -127,7 +127,7 @@ export function salarioCal(num: number): number {
     throw new RangeError("The salary amount should be above 0");
   }
 
-  return liquido;
+  return parseFloat(liquido.toFixed(2));
 }
 
 function impostoEscalao1(num: number): number {
