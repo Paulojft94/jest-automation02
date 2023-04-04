@@ -5,8 +5,8 @@ const racao: number = 501;
 
 console.log(foodAmount(pesoCao, racao));
 
-let pesosGroup: number[] = [4, 1, 100, 10];
+let pesosGroup: number[] = [46, 46, 46];
 
-let racaoGroup: number[] = [1, 1, 1, 1];
+let racaoGroup: number[] = [499, 500, 501];
 
 console.log(foodAmountGroup(pesosGroup, racaoGroup));

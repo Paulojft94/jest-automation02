@@ -560,9 +560,11 @@ export function salarioMensal(base: number, extraH: number): number {
 export function returnIndexProduct(list: number[], target: number): number {
   let product: number = 1;
 
+  thrower(target);
+
   for (let i = 0; i < list.length; i++) {
+    thrower(list[i]);
     product *= Math.abs(list[i]); //multiplicar os índices do array e convertendo negativos para positivos
-    console.log(product);
     if (product > target) {
       return i;
     }
@@ -600,6 +602,7 @@ export function getCombinations(num: number): string {
   let init: number = 0;
   let listOps: string = "";
   let i: number = 0;
+  if (num < 1 || num > 20) thrower(0);
 
   while (init <= num) {
     for (i = 0; i <= num; i++) {
@@ -655,6 +658,7 @@ export function foodAmountGroup(pesos: number[], racoes: number[]): number[] {
   }
 
   for (let i = 0; i < pesos.length; i++) {
+    thrower(racoes[i]);
     if (indexFood[i] > racoes[i]) {
       isEnough.push(-1);
     } else if (indexFood[i] < racoes[i]) {
@@ -682,7 +686,7 @@ export function numberCheckSum(cc: number, id: number): boolean {
   let getLastNumber: number = 0;
   let idArray: number[] = [];
 
-  if (cc < 0 || id < 0) thrower(-1);
+  if (cc < 0 || id < 0 || id > 9) thrower(-1);
 
   idArray.push(id);
 
@@ -698,7 +702,7 @@ export function numberCheckSum(cc: number, id: number): boolean {
 export function somaPonderada(numArr: number[]): number {
   let sumPonderada: number = 0;
 
-  if (numArr.length < 9) thrower(-1);
+  if (numArr.length != 9) thrower(-1);
 
   for (let i = 0; i < numArr.length; i++) {
     sumPonderada += numArr[i] * (i + 1);
@@ -713,6 +717,7 @@ export function isValid(summed: number): boolean {
 //Exercício 16: Separação de Pares e Ímpares (***)
 
 export function organizeNumbers(num: number[]): string {
+  if (num.length == 0) thrower(num.length);
   return `${orderOddList(num)} ${orderEvenList(num)}`;
 }
 
@@ -734,6 +739,7 @@ export function orderOddList(num: number[]): number[] {
   let oddList: number[] = [];
 
   for (let i = 0; i < num.length; i++) {
+    if (num[i] < 0 || num[i] > 9) thrower(-1);
     if (isEven(num[i]) == false) {
       oddList.push(num[i]);
     }
