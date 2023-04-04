@@ -553,6 +553,8 @@ function thrower2(num1: number, num2: number) {
 
 //Exercício 10: Cálculo Vencimento (**)
 export function salarioMensal(base: number, extraH: number): number {
+  thrower(base);
+  if (extraH < 0) thrower(extraH);
   return base + base * 0.02 * extraH;
 }
 
