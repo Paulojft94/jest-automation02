@@ -464,8 +464,7 @@ export function thrower(num: number) {
 
 //a) Verifique se um número inteiro é capicua.
 export function isCapicua(num: number): boolean {
-  let eCapicua: string = num.toString(); // cnverter o número para string
-  thrower(num);
+  let eCapicua: string = Math.abs(num).toString(); // cnverter o número para string
   return eCapicua == eCapicua.split("").reverse().join(""); //split, invertendo a ordem dos caracteres usando o método reverse e, em seguida, unindo novamente a string usando o método join
 }
 
@@ -497,7 +496,7 @@ export function findFirstCapicua(num1: number, num2: number): number {
 
 //d) Retorne a maior capicua num dado intervalo.
 export function findLastCapicua(num1: number, num2: number): number {
-  let lastCapicua: number = 0;
+  let lastCapicua: number = -1;
 
   thrower2(num1, num2);
 
