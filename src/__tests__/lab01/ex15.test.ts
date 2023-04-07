@@ -3,7 +3,7 @@ import { numberCheckSum } from "../../lab03/lab03_funcoes/funcoes03";
 describe("test the checksummed number", () => {
   describe("test the throw error cases", () => {
     test("negative CC number should throw an error", () => {
-      const cc: number = -1;
+      const cc: number = 0;
       const id: number = 3;
       expect(() => {
         numberCheckSum(cc, id);
@@ -44,14 +44,6 @@ describe("test the checksummed number", () => {
       const cc: number = 14258288;
       const id: number = 3;
       expect(numberCheckSum(cc, id)).toBe(true);
-    });
-
-    test("cc:0 id:3 should return invalid cc number", () => {
-      const cc: number = 0;
-      const id: number = 3;
-      expect(() => {
-        numberCheckSum(cc, id);
-      }).toThrow("Input must be type of INT and >0");
     });
 
     test("cc:0 id:9 should return invalid cc number", () => {

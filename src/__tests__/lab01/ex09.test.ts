@@ -71,12 +71,18 @@ describe("validate capicuas and amstrong numbers", () => {
       const in2: number = 109;
       expect(findFirstCapicua(in1, in2)).toBe(-1);
     });
+    test(" capicua should return 101", () => {
+      const in1: number = 101;
+      const in2: number = 102;
+      expect(findFirstCapicua(in1, in2)).toBe(101);
+    });
 
     test("100-105 should return 101 as first capicua", () => {
       const in1: number = 100;
       const in2: number = 105;
       expect(findFirstCapicua(in1, in2)).toBe(101);
     });
+
   });
 
   describe("alinea D) highest capicua", () => {
@@ -135,6 +141,16 @@ describe("validate capicuas and amstrong numbers", () => {
       const in2: number = 100;
       expect(amountOfCapicuas(in1, in2)).toBe(19);
     });
+    test("101-101 should return 0", () => {
+      const in1: number = 101;
+      const in2: number = 101;
+      expect(amountOfCapicuas(in1, in2)).toBe(1);
+    });
+    test("100-100 should return 0", () => {
+      const in1: number = 100;
+      const in2: number = 100;
+      expect(amountOfCapicuas(in1, in2)).toBe(0);
+    });
   });
   describe("alinea f) return the first amstrong number", () => {
     test("num1<0 should throw an error", () => {
@@ -163,8 +179,22 @@ describe("validate capicuas and amstrong numbers", () => {
       const in2: number = 129;
       expect(findFirstAmstroung(in1, in2)).toBe(-1);
     });
+    test("120-120 should return -1", () => {
+      const in1: number = 120;
+      const in2: number = 120;
+      expect(findFirstAmstroung(in1, in2)).toBe(-1);
+    });
+    test("153-153 should return -1", () => {
+      const in1: number = 153;
+      const in2: number = 153;
+      expect(findFirstAmstroung(in1, in2)).toBe(153);
+    });
+    test("0-0 should return -1", () => {
+      const in1: number = 153;
+      const in2: number = 0;
+      expect(findFirstAmstroung(in1, in2)).toBe(-1);
+    });
   });
-
   describe("alinea g) return a quantidade de amstrongs", () => {
     test("120-160 should return 153", () => {
       const in1: number = 120;
@@ -175,6 +205,16 @@ describe("validate capicuas and amstrong numbers", () => {
       const in1: number = 120;
       const in2: number = 129;
       expect(amountAmstroungs(in1, in2)).toBe(0);
+    });
+    test("120-120 should return 0", () => {
+      const in1: number = 120;
+      const in2: number = 120;
+      expect(amountAmstroungs(in1, in2)).toBe(0);
+    });
+    test("153-153 should return 1", () => {
+      const in1: number = 153;
+      const in2: number = 153;
+      expect(amountAmstroungs(in1, in2)).toBe(1);
     });
   });
 });

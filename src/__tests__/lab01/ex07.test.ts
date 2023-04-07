@@ -203,6 +203,14 @@ describe("test more operations on ranges", () => {
 
       expect(produtoMultiplos(m1, lim1, lim2)).toBe(162);
     });
+
+    test("product of multiples should return 162", () => {
+      const m1: number = 3;
+      const lim1: number = 1;
+      const lim2: number = 12;
+
+      expect(produtoMultiplos(m1, lim1, lim2)).toBe(1944);
+    });
   });
   describe("alinea g) mean of multiples of a number in a range", () => {
     test("end<=start should throw an error", () => {

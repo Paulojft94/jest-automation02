@@ -696,7 +696,7 @@ export function numberCheckSum(cc: number, id: number): boolean {
   let getLastNumber: number = 0;
   let idArray: number[] = [];
 
-  if (cc < 0 || id < 0 || id > 9) thrower(-1);
+  if (cc <= 0 || id < 0 || id > 9) thrower(-1);
 
   idArray.push(id);
 
