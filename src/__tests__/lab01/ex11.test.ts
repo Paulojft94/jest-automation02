@@ -30,4 +30,9 @@ describe("test the position of the acumulated product", () => {
     const tar: number = 95;
     expect(returnIndexProduct(input, tar)).toBe(4);
   });
+  test("product ends equal to targe", () => {
+    const input: number[] = [1, 2, 3, 4, 5];
+    const tar: number = 120;
+    expect(returnIndexProduct(input, tar)).toBe(-1);
+  });
 });

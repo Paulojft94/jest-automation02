@@ -52,8 +52,8 @@ describe("Odd and Even segregation", () => {
   });
   describe("test the valid use cases", () => {
     test("only even list should return even numbers", () => {
-      const list: number[] = [2, 4, 6, 8];
-      expect(organizeNumbers(list)).toBe(" 2,4,6,8");
+      const list: number[] = [2, 0, 6, 8];
+      expect(organizeNumbers(list)).toBe(" 2,0,6,8");
     });
     test("only odd list should return odd numbers", () => {
       const list: number[] = [1, 3, 5, 7, 9];

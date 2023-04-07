@@ -1,11 +1,3 @@
-//testar peso e racao zero,
-// peso 10kg: come <100 =100 e >100
-// peso 11kg: come <250 =250 e >250
-// peso 25Kg: "" "" "" "" ""
-//26Kg: <300 =300 >300
-//45Kg: "" ""    ""   ""
-//46Kg: <500 =500 >500
-
 import { foodAmount, foodAmountGroup } from "../../lab03/lab03_funcoes/funcoes03";
 
 describe("test the canicultura", () => {

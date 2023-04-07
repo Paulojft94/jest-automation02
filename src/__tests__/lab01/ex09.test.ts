@@ -52,14 +52,14 @@ describe("validate capicuas and amstrong numbers", () => {
   describe("alinea C) first capicua", () => {
     test("num1<0 should throw an error", () => {
       const in1: number = -1;
-      const in2: number = 1;
+      const in2: number = 0;
       expect(() => {
         findFirstCapicua(in1, in2);
       }).toThrow("inputs must be >=0");
     });
 
     test("num2<0 should throw an error", () => {
-      const in1: number = 1;
+      const in1: number = 0;
       const in2: number = -1;
       expect(() => {
         findFirstCapicua(in1, in2);

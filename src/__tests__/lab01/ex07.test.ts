@@ -159,6 +159,14 @@ describe("test more operations on ranges", () => {
 
       expect(somaDeMultiplosLimiteDesordenado(m1, lim1, lim2)).toBe(18);
     });
+
+    test("lim1 igual lim2 should order", () => {
+      const m1: number = 3;
+      const lim1: number = 10;
+      const lim2: number = 10;
+
+      expect(somaDeMultiplosLimiteDesordenado(m1, lim1, lim2)).toBe(0);
+    });
   });
 
   describe("alinea f) produto dos multiplos", () => {

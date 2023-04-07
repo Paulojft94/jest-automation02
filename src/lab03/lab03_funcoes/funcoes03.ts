@@ -594,11 +594,13 @@ export function numberClass(num: number): number {
 }
 
 function setClass(sumDiv: number, input: number): number {
-  let numClass: number = -1; //evita ter mais um if else no código
+  let numClass: number; //evita ter mais um if else no código
 
-  if (sumDiv == input) {
+  if (sumDiv < input) {
+    numClass = -1;
+  } else if (sumDiv == input) {
     numClass = 0;
-  } else if (sumDiv > input) {
+  } else {
     numClass = 1;
   }
 
@@ -648,9 +650,9 @@ function deservedFood(peso: number): number {
   thrower(peso);
   if (peso <= 10) {
     foodAmount = 100;
-  } else if (peso > 10 && peso <= 25) {
+  } else if (peso <= 25) {
     foodAmount = 250;
-  } else if (peso > 25 && peso <= 45) {
+  } else if (peso <= 45) {
     foodAmount = 300;
   }
   return foodAmount;
