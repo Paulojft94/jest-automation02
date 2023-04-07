@@ -8,12 +8,12 @@ import { productDescription } from "../../lab03/lab03_funcoes/funcoes03";
 describe("test the description of product", () => {
   test("0 should throw Alimento não perecível", () => {
     const input: number = 0;
-    expect(productDescription(input)).toBe("Alimento não perecível");
+    expect(productDescription(input)).toBe("Código Inválido");
   });
 
   test("16 should throw Alimento não perecível", () => {
     const input: number = 16;
-    expect(productDescription(input)).toBe("Alimento não perecível");
+    expect(productDescription(input)).toBe("Código Inválido");
   });
 
   test("15 should return Limpeza e utensílios domésticos", () => {
@@ -73,6 +73,6 @@ describe("test the description of product", () => {
 
   test("1.1 should return Alimento não perecível", () => {
     const input: number = 1.1;
-    expect(productDescription(input)).toBe("Alimento não perecível");
+    expect(productDescription(input)).toBe("Código Inválido");
   });
 });

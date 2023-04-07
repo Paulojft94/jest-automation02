@@ -71,9 +71,7 @@ function cambioFs(numberFs: number): number {
 //Exercício 3:Descrição do Produto (*)
 
 export function productDescription(num: number): string {
-  let prodDescription: string;
-
-  if (num < 1 || num > 15) prodDescription = "Código Inválido";
+  let prodDescription: string = "Código Inválido";
 
   if (num <= 15 && num >= 8) {
     prodDescription = "Limpeza e utensílios domésticos";
@@ -83,7 +81,7 @@ export function productDescription(num: number): string {
     prodDescription = "Vestuário";
   } else if (num >= 2 && num <= 4) {
     prodDescription = "Alimento perecível";
-  } else {
+  } else if (num == 1) {
     prodDescription = "Alimento não perecível";
   }
 
@@ -97,13 +95,13 @@ export function qualityClass(num: number): string {
 
   if (num < 0 || num > 20) throw new RangeError("Values must comprehended between 0 and 20");
 
-  if (num >= 0 && num <= 4) {
+  if (num <= 4) {
     quality = "Mau";
-  } else if (num >= 5 && num <= 9) {
+  } else if (num <= 9) {
     quality = "Medíocre";
-  } else if (num >= 10 && num <= 13) {
+  } else if (num <= 13) {
     quality = "Suficiente";
-  } else if (num >= 14 && num <= 17) {
+  } else if (num <= 17) {
     quality = "Bom";
   } else {
     quality = "Muito Bom";
@@ -117,14 +115,14 @@ export function qualityClass(num: number): string {
 export function salarioCal(num: number): number {
   let liquido: number;
 
-  if (num > 0 && num < 500) {
+  if (num <= 0) throw new RangeError("The salary amount should be above 0");
+
+  if (num < 500) {
     liquido = num - impostoEscalao1(num);
-  } else if (num >= 500 && num <= 1000) {
+  } else if (num <= 1000) {
     liquido = num - impostoEscalao2(num);
-  } else if (num > 1000) {
-    liquido = num - impostoEscalao3(num);
   } else {
-    throw new RangeError("The salary amount should be above 0");
+    liquido = num - impostoEscalao3(num);
   }
 
   return parseFloat(liquido.toFixed(2));
@@ -145,7 +143,7 @@ function impostoEscalao3(num: number): number {
 //Exercício 6:Operações de múltiplos num intervalo (**)
 
 export function multiplosA(start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0) throw new RangeError("Invalid range input");
 
   let total: number = quantidadeMultiplos(3, start, end);
 
@@ -163,7 +161,7 @@ function quantidadeMultiplos(mul: number, start: number, end: number): number {
 }
 
 export function multiplosB(multiplos: number, start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0 || multiplos <= 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0 || multiplos <= 0) throw new RangeError("Invalid range input");
 
   let total: number = quantidadeMultiplos(multiplos, start, end);
 
@@ -171,7 +169,7 @@ export function multiplosB(multiplos: number, start: number, end: number): numbe
 }
 
 export function multiplosC(start: number, end: number): string {
-  if (end <= start || end < 0 || start < 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0) throw new RangeError("Invalid range input");
 
   let countA: number = quantidadeMultiplos(3, start, end);
   let countB: number = quantidadeMultiplos(5, start, end);
@@ -180,7 +178,7 @@ export function multiplosC(start: number, end: number): string {
 }
 
 export function multiplosD(m1: number, m2: number, start: number, end: number): string {
-  if (end <= start || end < 0 || start < 0 || m1 <= 0 || m2 <= 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0 || m1 <= 0 || m2 <= 0) throw new RangeError("Invalid range input");
 
   let countA: number = quantidadeMultiplos(m1, start, end);
   let countB: number = quantidadeMultiplos(m2, start, end);
@@ -189,7 +187,7 @@ export function multiplosD(m1: number, m2: number, start: number, end: number): 
 }
 
 export function multiplosE(m1: number, m2: number, start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0 || m1 <= 0 || m2 <= 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0 || m1 <= 0 || m2 <= 0) throw new RangeError("Invalid range input");
 
   let total: number = somaMultiplos(m1, start, end) + somaMultiplos(m2, start, end);
 
@@ -211,7 +209,7 @@ export function somaMultiplos(mu1: number, start: number, end: number): number {
 /// alinea A
 export function somaDePares(start: number, end: number): number {
   const par: number = 2;
-  if (end <= start || end < 0 || start < 0) throw new RangeError("Invalid range input");
+  if (end <= start || start < 0) throw new RangeError("Invalid range input");
 
   let soma: number = somaMultiplos(par, start, end);
 
@@ -220,7 +218,7 @@ export function somaDePares(start: number, end: number): number {
 
 /// alinea B
 export function quantidadePares(start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0) throw new RangeError("Invalid range input");
+  if (end <= start || start < 0) throw new RangeError("Invalid range input");
 
   let quantidade: number = quantidadeMultiplos(2, start, end);
 
@@ -229,7 +227,7 @@ export function quantidadePares(start: number, end: number): number {
 
 /// alinea C
 export function somaDeImpares(start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0) throw new RangeError("Invalid range input");
+  if (end <= start || start < 0) throw new RangeError("Invalid range input");
 
   let countA: number = 0;
 
@@ -245,6 +243,7 @@ export function somaDeImpares(start: number, end: number): number {
 /// alinea D
 export function quantidadeImpares(start: number, end: number): number {
   let countA: number = 0;
+  if (end <= start || start < 0) throw new RangeError("Invalid range input");
 
   for (let i = start; i <= end; i++) {
     if (i % 2 == 1) {
@@ -272,7 +271,7 @@ export function somaDeMultiplosLimiteDesordenado(m1: number, lim1: number, lim2:
 
 /// alinea F
 export function produtoMultiplos(mul1: number, start: number, end: number): number {
-  if (end <= start || end < 0 || start < 0 || mul1 <= 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0 || mul1 <= 0) throw new RangeError("Invalid range input");
 
   let countA: number = 0;
   let countB: number = 1;
@@ -293,7 +292,7 @@ export function mediaMultiplos(mul1: number, start: number, end: number): number
   let total: number = 0;
   let amountOfMultiple: number = 0;
 
-  if (end <= start || end < 0 || start < 0 || mul1 <= 0) throw new RangeError("Invalid range input");
+  if (end <= start || start <= 0 || mul1 <= 0) throw new RangeError("Invalid range input");
 
   for (let i = start; i <= end; i++) {
     if (i % mul1 == 0) {
@@ -317,7 +316,7 @@ export function alineaH(mul1: number, mul2: number, start: number, end: number):
 //8.A
 export function numAlgarismos(num: number): number {
   thrower(num);
-  return Math.abs(num).toString().length;
+  return Math.trunc(num).toString().length;
 }
 
 //8.B
@@ -423,25 +422,33 @@ export function meanOflgarisms(num: number): number {
 
 //8.H
 export function meanOfEvenDigits(num: number): number {
-  let meanEven: number;
+  let meanEven: number = 0;
   thrower(num);
 
-  meanEven = sumOfEvenAlgarisms(num) / amountOfEvenDigits(num);
-
+  if (sumOfEvenAlgarisms(num) == 0) {
+    //to protect when there are no even algarisms in a number
+  } else {
+    meanEven = sumOfEvenAlgarisms(num) / amountOfEvenDigits(num);
+  }
   return meanEven;
 }
+
 //8.I
 export function meanOddDigits(num: number): number {
-  let meanOdd;
-
+  let meanOdd: number = 0;
   thrower(num);
-  meanOdd = sumOfOddAlgarisms(num) / amountOfOddDigits(num);
+
+  if (sumOfOddAlgarisms(num) == 0) {
+    //to protect when there are no even algarisms in a number
+  } else {
+    meanOdd = sumOfOddAlgarisms(num) / amountOfOddDigits(num);
+  }
 
   return parseFloat(meanOdd.toFixed(2));
 }
 
 //8.J
-export function invertNumber(num: number): number {
+export function invertNumber(num: number): string {
   let invert: string = "";
 
   thrower(num);
@@ -451,7 +458,7 @@ export function invertNumber(num: number): number {
     num = Math.floor(num / 10); //dividir por 10 para ficar com o penultimo nunero
   }
 
-  return parseFloat(invert);
+  return invert;
 }
 
 export function thrower(num: number) {

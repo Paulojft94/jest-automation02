@@ -166,8 +166,6 @@ describe("validate capicuas and amstrong numbers", () => {
   });
 
   describe("alinea g) return a quantidade de amstrongs", () => {
-    //0amstrongs
-    //ams
     test("120-160 should return 153", () => {
       const in1: number = 120;
       const in2: number = 160;

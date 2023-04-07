@@ -1,4 +1,4 @@
-import { organizeNumbers } from "../../lab03/lab03_funcoes/funcoes03";
+import { orderEvenList, organizeNumbers } from "../../lab03/lab03_funcoes/funcoes03";
 
 //lista só de pares
 //lista de impares
@@ -9,7 +9,14 @@ import { organizeNumbers } from "../../lab03/lab03_funcoes/funcoes03";
 describe("Odd and Even segregation", () => {
   describe("test the invalid use cases", () => {
     test("even list with negative number should throw an error", () => {
-      const list: number[] = [2, 4, 6, -2, 8];
+      const list: number[] = [2, 4, 6, -1, 8];
+      expect(() => {
+        orderEvenList(list);
+      }).toThrow("Input must be type of INT and >0");
+    });
+
+    test("empty list should throw an error", () => {
+      const list: number[] = [];
       expect(() => {
         organizeNumbers(list);
       }).toThrow("Input must be type of INT and >0");
@@ -22,10 +29,10 @@ describe("Odd and Even segregation", () => {
       }).toThrow("Input must be type of INT and >0");
     });
 
-    test("even list withshould throw an error", () => {
-      const list: number[] = [2, 4, 6, 8, 10];
+    test("even list with 10 should throw an error", () => {
+      const list: number[] = [2, 4, 6, 10, 8];
       expect(() => {
-        organizeNumbers(list);
+        orderEvenList(list);
       }).toThrow("Input must be type of INT and >0");
     });
 

@@ -13,7 +13,7 @@ describe("test the multiple exercise", () => {
 
     test("negative end < start should throw an error", () => {
       const start: number = 0;
-      const end: number = -1;
+      const end: number = 2;
 
       expect(() => {
         multiplosA(start, end);
@@ -30,7 +30,7 @@ describe("test the multiple exercise", () => {
     });
 
     test("negative start should throw an error", () => {
-      const start: number = -1;
+      const start: number = 0;
       const end: number = 5;
 
       expect(() => {
@@ -54,7 +54,7 @@ describe("test the multiple exercise", () => {
     test("equal end and start should throw an error", () => {
       const start: number = 5;
       const end: number = 5;
-      const mul: number = 0;
+      const mul: number = 1;
 
       expect(() => {
         multiplosB(mul, start, end);
@@ -63,8 +63,8 @@ describe("test the multiple exercise", () => {
 
     test("negative end < start should throw an error", () => {
       const start: number = 0;
-      const end: number = -1;
-      const mul: number = -1;
+      const end: number = 2;
+      const mul: number = 2;
 
       expect(() => {
         multiplosB(mul, start, end);
@@ -72,19 +72,9 @@ describe("test the multiple exercise", () => {
     });
 
     test("negative end and negative start should throw an error", () => {
-      const start: number = -5;
-      const end: number = -1;
-      const mul: number = 10;
-
-      expect(() => {
-        multiplosB(mul, start, end);
-      }).toThrow("Invalid range input");
-    });
-
-    test("negative start should throw an error", () => {
-      const start: number = -1;
-      const end: number = 5;
-      const mul: number = -1;
+      const start: number = 1;
+      const end: number = 4;
+      const mul: number = 0;
 
       expect(() => {
         multiplosB(mul, start, end);
@@ -111,7 +101,7 @@ describe("test the multiple exercise", () => {
 
     test("negative end < start should throw an error", () => {
       const start: number = 0;
-      const end: number = -1;
+      const end: number = 2;
 
       expect(() => {
         multiplosC(start, end);
@@ -121,15 +111,6 @@ describe("test the multiple exercise", () => {
     test("negative end and negative start should throw an error", () => {
       const start: number = -5;
       const end: number = -1;
-
-      expect(() => {
-        multiplosC(start, end);
-      }).toThrow("Invalid range input");
-    });
-
-    test("negative start should throw an error", () => {
-      const start: number = -1;
-      const end: number = 5;
 
       expect(() => {
         multiplosC(start, end);
@@ -147,8 +128,8 @@ describe("test the multiple exercise", () => {
     test("equal end and start should throw an error", () => {
       const start: number = 5;
       const end: number = 5;
-      const mul1: number = -1;
-      const mul2: number = -1;
+      const mul1: number = 2;
+      const mul2: number = 3;
 
       expect(() => {
         multiplosD(mul1, mul2, start, end);
@@ -157,19 +138,19 @@ describe("test the multiple exercise", () => {
 
     test("negative end < start should throw an error", () => {
       const start: number = 0;
-      const end: number = -1;
-      const mul1: number = 0;
-      const mul2: number = 1;
+      const end: number = 10;
+      const mul1: number = 1;
+      const mul2: number = 2;
       expect(() => {
         multiplosD(mul1, mul2, start, end);
       }).toThrow("Invalid range input");
     });
 
     test("negative end and negative start should throw an error", () => {
-      const start: number = -5;
-      const end: number = -1;
-      const mul1: number = 1;
-      const mul2: number = 0;
+      const start: number = 1;
+      const end: number = 4;
+      const mul1: number = 0;
+      const mul2: number = 3;
 
       expect(() => {
         multiplosD(mul1, mul2, start, end);
@@ -177,9 +158,9 @@ describe("test the multiple exercise", () => {
     });
 
     test("negative start should throw an error", () => {
-      const start: number = -1;
-      const end: number = 5;
-      const mul1: number = 0;
+      const start: number = 1;
+      const end: number = 4;
+      const mul1: number = 4;
       const mul2: number = 0;
       expect(() => {
         multiplosD(mul1, mul2, start, end);
@@ -199,8 +180,8 @@ describe("test the multiple exercise", () => {
     test("equal end and start should throw an error", () => {
       const start: number = 5;
       const end: number = 5;
-      const mul1: number = -1;
-      const mul2: number = -1;
+      const mul1: number = 1;
+      const mul2: number = 2;
 
       expect(() => {
         multiplosE(mul1, mul2, start, end);
@@ -209,19 +190,19 @@ describe("test the multiple exercise", () => {
 
     test("negative end < start should throw an error", () => {
       const start: number = 0;
-      const end: number = -1;
-      const mul1: number = 0;
-      const mul2: number = 1;
+      const end: number = 1;
+      const mul1: number = 2;
+      const mul2: number = 3;
       expect(() => {
         multiplosE(mul1, mul2, start, end);
       }).toThrow("Invalid range input");
     });
 
     test("negative end and negative start should throw an error", () => {
-      const start: number = -5;
-      const end: number = -1;
-      const mul1: number = 1;
-      const mul2: number = 0;
+      const start: number = 1;
+      const end: number = 3;
+      const mul1: number = 0;
+      const mul2: number = 1;
 
       expect(() => {
         multiplosE(mul1, mul2, start, end);
@@ -229,9 +210,9 @@ describe("test the multiple exercise", () => {
     });
 
     test("negative start should throw an error", () => {
-      const start: number = -1;
+      const start: number = 3;
       const end: number = 5;
-      const mul1: number = 0;
+      const mul1: number = 1;
       const mul2: number = 0;
       expect(() => {
         multiplosE(mul1, mul2, start, end);
