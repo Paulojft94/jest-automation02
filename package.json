@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
+    "single": "jest jest-automation02/src/__tests__/lab01/*.test.ts",
     "test": "jest --coverage --coverageReporters=\"text\" --coverageReporters=\"html\" --coverageReporters=\"json\"",
     "test-watch": "jest --watchAll"
   },
