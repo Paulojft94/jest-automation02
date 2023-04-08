@@ -620,7 +620,6 @@ export function getCombinations(num: number): string {
         listOps += `${init}+${i} `;
       }
     }
-    i = 0;
     init++;
   }
 
