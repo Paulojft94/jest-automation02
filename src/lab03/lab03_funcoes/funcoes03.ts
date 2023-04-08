@@ -611,7 +611,7 @@ function setClass(sumDiv: number, input: number): number {
 export function getCombinations(num: number): string {
   let init: number = 0;
   let listOps: string = "";
-  let i: number = 0;
+  let i: number;
   if (num < 1 || num > 20) thrower(0);
 
   while (init <= num) {
