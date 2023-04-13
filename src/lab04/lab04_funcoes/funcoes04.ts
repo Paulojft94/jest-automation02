@@ -49,6 +49,12 @@ export function evenFilterArr(num: number[]): number[] {
   return arrOut;
 }
 
+//Exercício 5: Retornar Impares do Array
+/**
+ *
+ * @param num array of numbers
+ * @returns an array of the even numbers
+ */
 export function oddFilterArr(num: number[]): number[] {
   let arrOut: number[] = [];
 
@@ -58,4 +64,20 @@ export function oddFilterArr(num: number[]): number[] {
 
 function isOdd(num: number): boolean {
   return Math.abs(num % 2) == 1;
+}
+
+//Exercício 6 e 7 já estão feitos no LAB03
+
+//Exercício 8: Primeiros N Elementos do Array
+
+export function nFilter(number: number[], n: number): number[] {
+  let nFiltered: number[] = [];
+
+  if (n <= 0 || n > number.length) throw new RangeError("invalid Nth variable value");
+
+  for (let i = 0; i < n; i++) {
+    nFiltered.push(Math.trunc(number[i]));
+  }
+
+  return nFiltered;
 }
