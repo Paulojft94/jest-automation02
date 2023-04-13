@@ -11,7 +11,7 @@ describe("Retornar Pares", () => {
     });
 
     test("[1,-2,-1,6] should return [1, -1]", () => {
-      expect(oddFilterArr([1, -2, -1, 6])).toStrictEqual([1]);
+      expect(oddFilterArr([1, -2, -1, 6])).toStrictEqual([1, -1]);
     });
 
     test("[0, 0, 0, 1, 2] should return [1]", () => {
@@ -23,9 +23,3 @@ describe("Retornar Pares", () => {
     });
   });
 });
-
-//com o type impar
-//todos números pares, nenhum numero par
-//com números negativos
-//com 0
-//vazio

@@ -57,5 +57,5 @@ export function oddFilterArr(num: number[]): number[] {
 }
 
 function isOdd(num: number): boolean {
-  return num % 2 == 1;
+  return Math.abs(num % 2) == 1;
 }
