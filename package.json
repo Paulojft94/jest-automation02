@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "single": "jest jest-automation02/src/__tests__/lab01/*.test.ts",
+    "single": "jest jest-automation02/src/__tests__/*/*.test.ts",
     "test": "jest --coverage --coverageReporters=\"text\" --coverageReporters=\"html\" --coverageReporters=\"json\"",
     "test-watch": "jest --watchAll"
   },
@@ -37,7 +37,8 @@
     "coverageDirectory": "coverage",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/lab03/lab03_funcoes/funcoes03.ts"
+      "src/lab03/lab03_funcoes/funcoes03.ts",
+      "src/lab04/lab04_funcoes/funcoes04.ts"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/"
