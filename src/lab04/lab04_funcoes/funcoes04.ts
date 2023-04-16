@@ -81,3 +81,43 @@ export function nFilter(number: number[], n: number): number[] {
 
   return nFiltered;
 }
+
+//Exercício 9: Múltiplos de 3 Num Dado Intervalo (*)
+export function multiplesOfThree(num1: number, num2: number): number[] {
+  return multiplesInRange(3, num1, num2, 0);
+}
+
+//Exercício10: MúltiplosdeNNumDadoIntervalo(*)
+
+export function multiplesOfN(mul: number, num1: number, num2: number): number[] {
+  return multiplesInRange(mul, num1, num2, 0);
+}
+
+//Exercício11: MúltiplosdeNNúmerosNumDadoIntervalo(*)
+export function multiplesOfNInRange(numbers: number[], num1: number, num2: number): number[] {
+  let commonMultiples: number[] = [];
+
+  for (let i = num1; i <= num2; i++) {
+    let multipleCount = 0;
+
+    for (let j = 0; j < numbers.length; j++) {
+      if (i % numbers[j] === 0) {
+        multipleCount++;
+      }
+    }
+    if (multipleCount === numbers.length) {
+      commonMultiples.push(i);
+    }
+  }
+  return commonMultiples;
+}
+
+function multiplesInRange(mul: number, start: number, end: number, evenOdd: number): number[] {
+  let multiples: number[] = [];
+  for (let i = start; i <= end; i++) {
+    if (i % mul == evenOdd) {
+      multiples.push(i);
+    }
+  }
+  return multiples;
+}
