@@ -129,43 +129,59 @@ export function multiplesOfNInRange(numbers: number[], num1: number, num2: numbe
 //Exercício12: Está feito nos exercícios do lab03
 
 ////Exercício13: OperaçõesemArray(*)
+//declaration
+export class MyArray {
+  //fields
+  private array: number[];
 
-//alinea a) o elemento de menor valor;
-export function checkLowestValue(numbers: number[]): number {
-  return Math.min.apply(Math, numbers);
-}
-
-//alinea b) o elemento de maior valor;
-export function checkHighestValue(numbers: number[]): number {
-  return Math.max.apply(Math, numbers);
-}
-
-//alinea c) o valor médio dos elementos;
-export function meanArrayElements(numbers: number[]): number {
-  let output: number = 0;
-
-  for (let i = 0; i < numbers.length; i++) {
-    output += numbers[i];
+  //construtor
+  constructor(num: number[]) {
+    this.array = num;
   }
-  return output / numbers.length;
-}
 
-//alinea d) o produto dos seus elementos;
-export function productAllElmenets(numbers: number[]): number {
-  let output: number = 1;
-
-  for (let i = 0; i < numbers.length; i++) {
-    output *= numbers[i];
+  //functions alinea a)
+  public checkLowestValue(): number {
+    return Math.min.apply(Math, this.array);
   }
-  return output;
+  //functions alinea b)
+  public checkHighestValue(): number {
+    return Math.max.apply(Math, this.array);
+  }
+  //functions alinea c)
+  public meanArrayElements(): number {
+    let output: number = 0;
+    for (let i = 0; i < this.array.length; i++) {
+      output += this.array[i];
+    }
+    return output / this.array.length;
+  }
+  //alinea d) o produto dos seus elementos;
+  public productAllElmenets(): number {
+    let output: number = 1;
+
+    for (let i = 0; i < this.array.length; i++) {
+      output *= this.array[i];
+    }
+    return output;
+  }
+  //alinea e) o conjunto de elementos não repetidos; (**)
+  public remDuplicates(): number[] {
+    return [...new Set(this.array)];
+  }
+  //alinea f)o array cujos elementos estão pela ordem inversa
+  public reverseArray(): number[] {
+    return this.array.reverse();
+  }
 }
 
-//alinea e) o conjunto de elementos não repetidos; (**)
-export function remDuplicates(numbers: number[]): number[] {
-  return [...new Set(numbers)];
-}
+//Exercício14: NúmerodeColunasemMatriz(**)
+export function checkMatrix(num: number[][]): number {
+  let numColumns: number = num[0].length;
 
-//alinea f)o array cujos elementos estão pela ordem inversa
-export function reverseArray(numbers: number[]): number[] {
-  return numbers.reverse();
+  if (num.length != numColumns) numColumns = -1;
+
+  for (let i = 1; i < numColumns; i++) {
+    if (num[i].length !== numColumns) return -1;
+  }
+  return numColumns;
 }
