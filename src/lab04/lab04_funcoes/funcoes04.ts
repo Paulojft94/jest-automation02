@@ -185,3 +185,19 @@ export function checkMatrix(num: number[][]): number {
   }
   return numColumns;
 }
+
+//Exercício 15: Matriz Quadrada (**)
+export function isMatrixSquared(num: number[][]): boolean {
+  let isSquared: boolean = false;
+  if (checkMatrix(num) != -1) isSquared = true;
+  return isSquared;
+}
+
+//Exercício 16: Matriz Rectangular (**)
+export function isMatrixRect(num: number[][]): boolean {
+  let isRect: boolean = false;
+  if (checkMatrix(num) == -1) isRect = true;
+  return isRect;
+}
+
+//Exercício 17: OperaçõessobreMatrizes(**)
