@@ -172,6 +172,31 @@ export class MyArray {
   public reverseArray(): number[] {
     return this.array.reverse();
   }
+
+  public primeNumbersOfArray(): number[] {
+    let count: number = 0;
+    let validPrime: number[] = [];
+    let prime: number[] = [];
+
+    for (let n = 0; n < this.array.length; n++) {
+      if (n > 1) {
+        validPrime.push(this.array[n]);
+      }
+    }
+
+    for (let i = 0; i < validPrime.length; i++) {
+      for (let j = 2; j < validPrime[i]; j++) {
+        if (j % validPrime[i] == 0) {
+          count++;
+        }
+      }
+      if (count == 0) {
+        prime.push(validPrime[i]);
+      }
+    }
+
+    return prime;
+  }
 }
 
 //Exercício14: NúmerodeColunasemMatriz(**)
@@ -201,3 +226,40 @@ export function isMatrixRect(num: number[][]): boolean {
 }
 
 //Exercício 17: OperaçõessobreMatrizes(**)
+//a) o elemento de menor valor;
+export function matrixLowestValue(num: number[][]): number {
+  return Math.min.apply(Math, makeMatrixArray(num));
+}
+
+export function makeMatrixArray(num: number[][]): number[] {
+  let newArr: number[] = [];
+  for (let i = 0; i < num.length; i++) {
+    for (let j = 0; j < num[i].length; j++) {
+      newArr.push(num[i][j]);
+    }
+  }
+  return newArr;
+}
+
+//B) o elemento de maior valor;
+export function matrixHighestValue(num: number[][]): number {
+  return Math.max.apply(Math, makeMatrixArray(num));
+}
+
+//C) o valor médio dos elementos;
+export function matrixMeanElements(num: number[][]): number {
+  const mySecondClassInstance = new MyArray(makeMatrixArray(num));
+  return parseFloat(mySecondClassInstance.meanArrayElements().toFixed(1));
+}
+
+//D) o produto dos seus elementos; (***)
+export function matrixProduct(num: number[][]): number {
+  const mySecondClassInstance = new MyArray(makeMatrixArray(num));
+  return mySecondClassInstance.productAllElmenets();
+}
+
+//E) o conjunto de elementos não repetidos; (***)
+export function remDuplicatesFromMatrix(num: number[][]): number[] {
+  const mySecondClassInstance = new MyArray(makeMatrixArray(num));
+  return mySecondClassInstance.remDuplicates();
+}
