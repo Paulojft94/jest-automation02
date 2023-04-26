@@ -303,10 +303,9 @@ export function matrixSecondDiagonal(num: number[][]): number[] {
 
 //I) se a mesma corresponde a uma matriz identidade;
 export function matrixIdent(num: number[][]): boolean {
-  let diagonal: number[] = [];
+  let diagonal: number[] = matrixMainDiagonal(num);
   let isIdent: boolean;
   let notDiagonal: number[] = [];
-  diagonal = matrixMainDiagonal(num);
   for (let i = 0; i < num.length; i++) {
     for (let j = 0; j < num[i].length; j++) {
       if (i != j) {
