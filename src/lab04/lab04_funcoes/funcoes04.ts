@@ -174,28 +174,29 @@ export class MyArray {
   }
 
   public primeNumbersOfArray(): number[] {
-    let count: number = 0;
     let validPrime: number[] = [];
     let prime: number[] = [];
-
     for (let n = 0; n < this.array.length; n++) {
-      if (n > 1) {
+      if (this.array[n] > 1) {
         validPrime.push(this.array[n]);
       }
     }
 
     for (let i = 0; i < validPrime.length; i++) {
-      for (let j = 2; j < validPrime[i]; j++) {
-        if (j % validPrime[i] == 0) {
-          count++;
-        }
-      }
-      if (count == 0) {
+      if (this.isPrime(validPrime[i])) {
         prime.push(validPrime[i]);
       }
     }
-
     return prime;
+  }
+
+  public isPrime(num: number): boolean {
+    if (num <= 3) return true; // 2 and 3 are prime
+    if (num % 2 === 0 || num % 3 === 0) return false; // Multiples of 2 and 3 are not prime
+    for (let i = 5; i * i <= num; i += 6) {
+      if (num % i === 0 || num % (i + 2) === 0) return false;
+    }
+    return true;
   }
 }
 
@@ -262,4 +263,62 @@ export function matrixProduct(num: number[][]): number {
 export function remDuplicatesFromMatrix(num: number[][]): number[] {
   const mySecondClassInstance = new MyArray(makeMatrixArray(num));
   return mySecondClassInstance.remDuplicates();
+}
+
+//F)os elementos primos desse array.
+export function primeNumberFromMatrix(num: number[][]): number[] {
+  const primeArray = new MyArray(makeMatrixArray(num));
+  return primeArray.primeNumbersOfArray();
+}
+
+//G) a diagonal principal da matriz (apenas caso seja quadrada ou retangular);
+
+export function matrixMainDiagonal(num: number[][]): number[] {
+  let output: number[] = [];
+
+  if (isMatrixSquared(num) == true || isMatrixRect(num) == true) {
+    for (let i = 0; i < num.length; i++) {
+      output.push(num[i][i]);
+    }
+  } else {
+    output.push(-1);
+  }
+
+  return output;
+}
+
+//H) a diagonal secundária da matriz (apenas caso seja quadrada ou retangular);
+export function matrixSecondDiagonal(num: number[][]): number[] {
+  let output: number[] = [];
+
+  if (isMatrixSquared(num) != false || isMatrixRect(num) != false) {
+    for (let i = num.length - 1; i >= 0; i--) {
+      output.push(num[num.length - 1 - i][i]);
+    }
+  } else {
+    output.push(-1);
+  }
+  return output;
+}
+
+//I) se a mesma corresponde a uma matriz identidade;
+export function matrixIdent(num: number[][]): boolean {
+  let diagonal: number[] = [];
+  let isIdent: boolean;
+  let notDiagonal: number[] = [];
+  diagonal = matrixMainDiagonal(num);
+  for (let i = 0; i < num.length; i++) {
+    for (let j = 0; j < num[i].length; j++) {
+      if (i != j) {
+        notDiagonal.push(num[i][j]);
+      }
+    }
+  }
+
+  if (sumOfArray(diagonal) / num.length == 1 && sumOfArray(notDiagonal) == 0) {
+    isIdent = true;
+  } else {
+    isIdent = false;
+  }
+  return isIdent;
 }
