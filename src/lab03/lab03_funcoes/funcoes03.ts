@@ -616,7 +616,7 @@ export function getCombinations(num: number): string {
 
   while (init <= num) {
     for (i = 0; i <= num; i++) {
-      if (init + i == num) {
+      if (init + i == num && init + i <=num/2  ) {
         listOps += `${init}+${i} `;
       }
     }
